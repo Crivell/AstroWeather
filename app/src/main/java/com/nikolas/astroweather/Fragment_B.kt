@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_b.*
 import kotlinx.android.synthetic.main.fragment_b.view.*
 
 class Fragment_B : Fragment() {
-    lateinit var editText : EditText
+
     lateinit var textView: TextView
     lateinit var button : Button
     lateinit var coButton:Button
@@ -27,7 +27,7 @@ class Fragment_B : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v : View = inflater.inflate(R.layout.fragment_b,container,false)
 
-        editText = v.textB
+
         button = v.butB
         textView = v.tex
         coButton = v.co
@@ -40,22 +40,6 @@ class Fragment_B : Fragment() {
         activity?.let {
             model = ViewModelProviders.of(it).get(SharedViewModel::class.java)
         }
-
-        model.getText().observe(this, Observer<String>(){ item ->
-            @Override
-             fun onChange(){
-                textView.setText(item)
-            }
-        })
-
-        button.setOnClickListener{
-            model.setText(editText.text.toString())
-        }
-        button.setOnClickListener{
-            model.setText(editText.text.toString())
-
-        }
-        editText.setText(model.text.value)
 
         coButton.setOnClickListener {
             model.who.value = "menu";

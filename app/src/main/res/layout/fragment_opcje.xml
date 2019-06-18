@@ -12,7 +12,8 @@
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Czestotliwosc odswiezania w minutach"/>
     <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/odswie" android:numeric="integer" />
 
-    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Update odswierzania" android:id="@+id/updateOdswiezania"/>
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Update odswiezania"
+            android:id="@+id/updateOdswiezania"/>
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/up"/>
     <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:text="cofnij sie do menu" android:id="@+id/co"/>

@@ -10,26 +10,31 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.astrocalculator.AstroCalculator
+import com.astrocalculator.AstroDateTime
 import com.nikolas.astroweather.VM.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_a.*
 import kotlinx.android.synthetic.main.fragment_a.view.*
+import java.util.*
 
 class Fragment_A : Fragment() {
 
-    lateinit var editText : EditText
+
     lateinit var textView: TextView
     lateinit var timeText:TextView
+    lateinit var sunRise:TextView
     lateinit var button : Button
     lateinit var coButton:Button
     private lateinit var model: SharedViewModel
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v : View = inflater.inflate(R.layout.fragment_a,container,false)
 
-        editText = v.textA
+
         textView = v.textView
         button = v.butA
         coButton = v.co
         timeText = v.time
+        sunRise = v.sunRise
 
         return v
     }
@@ -40,18 +45,15 @@ class Fragment_A : Fragment() {
             model = ViewModelProviders.of(it).get(SharedViewModel::class.java)
         }
 
-        editText.setText(model.text.value)
-        button.setOnClickListener{
-            model.setText(editText.text.toString())
-            textView.setText(model.text.value)
-        }
-
         coButton.setOnClickListener {
             model.who.value = "menu"
         }
-
+        sunRise.setText(model.getAstroCalculator()!!.sunInfo.sunrise.hour.toString() +":"+model.getAstroCalculator()!!.sunInfo.sunrise.minute.toString())
 
     }
+
+
+
 //    override fun onCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)
 //        model = activity?.run {
