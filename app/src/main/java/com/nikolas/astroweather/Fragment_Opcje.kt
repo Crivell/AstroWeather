@@ -71,7 +71,7 @@ class Fragment_Opcje :Fragment() {
         }
         odswierzanieButton.setOnClickListener {
             if(odswiText.text.length > 0){
-                model.odswierzanie.value = odswiText.text.toString().toInt()
+                model.date.value = odswiText.text.toString().toInt()
                 updateText.text = "Odzwierzanie zostalo zmienione na wartość: " + odswiText.text.toString()
             }
         }

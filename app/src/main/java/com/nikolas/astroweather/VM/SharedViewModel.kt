@@ -14,15 +14,21 @@ class SharedViewModel : ViewModel() {
     val odswierzanie = MutableLiveData<Int>()
     val text = MutableLiveData<String>()
     val who = MutableLiveData<String>()
+    val date = MutableLiveData<Int>()
+    val bool = MutableLiveData<Boolean>()
     val astroCalculator:MutableLiveData<AstroCalculator> = MutableLiveData<AstroCalculator>()
     fun setText(tex:String){
         text.value = tex
     }
     init {
+        latitude.value = 0.0
+        longitude.value = 0.0
         text.value = ""
         who.value = "menu"
         odswierzanie.value = 1
         astroCalculator.value = setUpDataToAstro(0.0,0.0)
+        date.value = 15
+        bool.value = false
     }
     fun getText(): LiveData<String> {
         return text
@@ -32,19 +38,44 @@ class SharedViewModel : ViewModel() {
         return astroCalculator.value
     }
 
+    fun getLa(): Double? {
+        return this.latitude.value
+    }
+    fun getLo(): Double? {
+        return this.longitude.value
+    }
+
     fun setUpDataToAstro(latitude:Double, longitude:Double): AstroCalculator {
         val date:Date = Calendar.getInstance().time
 
         val astroDateTime: AstroDateTime = AstroDateTime(
-            Calendar.YEAR,
-            Calendar.MONTH,
-            Calendar.DAY_OF_MONTH,
-            Calendar.HOUR,
-            Calendar.MINUTE,
-            Calendar.SECOND,
-            Calendar.ZONE_OFFSET,false)
+            date.year,
+            date.month,
+            date.day,
+            date.hours,
+            date.minutes,
+            date.seconds,
+            date.timezoneOffset,false)
         val mLocation : AstroCalculator.Location = AstroCalculator.Location(latitude,longitude)
         return AstroCalculator(astroDateTime,mLocation)
 
+    }
+
+    fun setLocation(){
+        val mLocation : AstroCalculator.Location = AstroCalculator.Location(getLa() ?: 0.0,getLo() ?: 0.0)
+        getAstroCalculator()!!.setLocation(mLocation)
+    }
+
+    fun setTime(){
+        val date:Date = Calendar.getInstance().time
+        val astroDateTime: AstroDateTime = AstroDateTime(
+            date.year,
+            date.month,
+            date.day,
+            date.hours,
+            date.minutes,
+            date.seconds,
+            date.timezoneOffset,false)
+        getAstroCalculator()!!.setDateTime(astroDateTime)
     }
 }

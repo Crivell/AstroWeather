@@ -8,23 +8,83 @@ import android.os.Bundle
 import android.widget.Button
 import com.nikolas.astroweather.VM.SharedViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
+import android.R.attr.start
+import android.content.res.Configuration
+import android.graphics.drawable.GradientDrawable
+import android.widget.TextView
+import kotlinx.android.synthetic.main.fragment_a.*
+
 
 class MainActivity : AppCompatActivity() {
 
     val sharedViewModel : SharedViewModel by lazy {
         ViewModelProviders.of(this).get(SharedViewModel::class.java)
     }
-
+    var t1: Thread? = null
+    var t2: Thread? = null
+    lateinit var te :TextView
+    lateinit var text1 : TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        text1 = text
+        te = check
 
-        supportFragmentManager.beginTransaction().add(R.id.fragA, Fragment_menu()).commit()
+        if(te.text.equals("te")){
+            supportFragmentManager.beginTransaction().add(R.id.fragA, Fragment_menu()).commit()
+            if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+                supportFragmentManager.beginTransaction().add(R.id.fragB, Fragment_menu()).commit()
+            }
+        }else{
+            supportFragmentManager.beginTransaction().add(R.id.fragA, Fragment_menu()).commit()
+            supportFragmentManager.beginTransaction().add(R.id.fragB, Fragment_menu()).commit()
+            if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+                supportFragmentManager.beginTransaction().add(R.id.fragB, Fragment_menu()).commit()
+            }
+        }
 
+        t1 = object : Thread() {
+            override fun run() {
+                try {
+                    while (!isInterrupted) {
+                        Thread.sleep(1000)
+                        runOnUiThread {
+                            text1.text = Calendar.getInstance().time.toString()
+                            println("Update time")
+                        }
+                    }
+                } catch (e: InterruptedException) {
+                }
 
+            }
+        }
+        (t1 as Thread).start()
+
+        t2 = object : Thread() {
+            override fun run() {
+                try {
+                    while (!isInterrupted) {
+                        Thread.sleep(sharedViewModel.date.value!!.toLong()*1000)
+                        runOnUiThread {
+                            if(sharedViewModel.bool.value == false){
+                                sharedViewModel.bool.value = true
+                            }else{
+                                sharedViewModel.bool.value = false
+                            }
+                            println("update")
+                        }
+                    }
+                } catch (e: InterruptedException) {
+                }
+
+            }
+        }
+        (t2 as Thread).start()
         observe(sharedViewModel)
 
     }
+
 
     private fun observe(sharedViewModel: SharedViewModel) {
         sharedViewModel.who.observe(this, Observer {

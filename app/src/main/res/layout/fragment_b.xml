@@ -1,13 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content"
+              android:layout_height="match_parent"
               android:gravity="center_horizontal"
               android:background="#5A5B52"
               android:orientation="vertical"
               android:padding="16dp">
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="KSIEZYC"/>
-    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="OK" android:id="@+id/butB"/>
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/tex"/>
-    <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/co" android:text="Cofnij do menu"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="KSIEZYC" android:textSize="20sp"/>
+
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/co" android:text="Cofnij do menu" android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Wchód"
+              android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/moonRise"
+              android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Zachód"
+              android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/moonSet"
+              android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:text="Najbliższy nów i pełnia  " android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/nowPel"
+              android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:text="Faza księżyca" android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/per"
+              android:textSize="20sp"/>
+
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:text="Dzień miesiąca synodycznego" android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/day"
+              android:textSize="20sp"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/time"
+              android:textSize="20sp"/>
 </LinearLayout>

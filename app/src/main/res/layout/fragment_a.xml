@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:gravity="center_horizontal"
                 android:background="#FFFF00"
                 android:orientation="vertical"
                 android:padding="16dp">
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="SLANCE"/>
-    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="OK" android:id="@+id/butA"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="SLANCE" android:textSize="20sp"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="61dp" android:id="@+id/textView"/>
-    <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/co" android:text="Cofnij do menu"/>
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/time"/>
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/sunRise"/>
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/co" android:text="Cofnij do menu" android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Wchód"
+              android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/sunRise"
+              android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Zachód"
+              android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/sunSet"
+              android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:text="Zmierz i świt cywilny " android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/twilate"
+              android:textSize="20sp"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/time"
+              android:textSize="20sp"/>
 </LinearLayout>
