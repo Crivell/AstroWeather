@@ -37,11 +37,9 @@ class MainActivity : AppCompatActivity() {
                 supportFragmentManager.beginTransaction().add(R.id.fragB, Fragment_menu()).commit()
             }
         }else{
-            supportFragmentManager.beginTransaction().add(R.id.fragA, Fragment_menu()).commit()
-            supportFragmentManager.beginTransaction().add(R.id.fragB, Fragment_menu()).commit()
-            if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
-                supportFragmentManager.beginTransaction().add(R.id.fragB, Fragment_menu()).commit()
-            }
+            supportFragmentManager.beginTransaction().add(R.id.fragB, Fragment_Opcje()).commit()
+            supportFragmentManager.beginTransaction().add(R.id.fragD, Fragment_A()).commit()
+            supportFragmentManager.beginTransaction().add(R.id.fragC, Fragment_B()).commit()
         }
 
         t1 = object : Thread() {
@@ -81,6 +79,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         (t2 as Thread).start()
+
+
         observe(sharedViewModel)
 
     }
