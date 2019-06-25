@@ -5,6 +5,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.astrocalculator.AstroCalculator
 import com.astrocalculator.AstroDateTime
+import com.nikolas.astroweather.CurrentWeatherData
 import java.time.LocalDateTime
 import java.util.*
 
@@ -17,6 +18,7 @@ class SharedViewModel : ViewModel() {
     val date = MutableLiveData<Int>()
     val bool = MutableLiveData<Boolean>()
     val astroCalculator:MutableLiveData<AstroCalculator> = MutableLiveData<AstroCalculator>()
+    val currentWeatherData:MutableLiveData<CurrentWeatherData> = MutableLiveData()
     fun setText(tex:String){
         text.value = tex
     }
@@ -32,6 +34,10 @@ class SharedViewModel : ViewModel() {
     }
     fun getText(): LiveData<String> {
         return text
+    }
+
+    fun getCurrentWeatherData():CurrentWeatherData?{
+        return currentWeatherData.value
     }
 
     fun getAstroCalculator(): AstroCalculator? {
