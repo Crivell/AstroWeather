@@ -16,6 +16,7 @@ class Fragment_menu :Fragment() {
     lateinit var buttonMenu: Button
     lateinit var buttonSlace: Button
     lateinit var buttonKsiezyc: Button
+    lateinit var buttonMenuPogo:Button
     private  lateinit var model: SharedViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -24,7 +25,7 @@ class Fragment_menu :Fragment() {
         buttonMenu = v.zmiana
         buttonSlace = v.slonce
         buttonKsiezyc = v.ksienzyc
-
+        buttonMenuPogo = v.menuPogo
         return v
     }
 
@@ -46,6 +47,9 @@ class Fragment_menu :Fragment() {
 
         buttonKsiezyc.setOnClickListener {
             model.who.value = "ksie"
+        }
+        buttonMenuPogo.setOnClickListener {
+            model.who.value = "menuWe"
         }
     }
 

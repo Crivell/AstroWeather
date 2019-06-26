@@ -1,5 +1,6 @@
 package com.nikolas.astroweather
 
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -15,6 +16,8 @@ class Fragment_weather_menu : Fragment() {
     lateinit var buttonPod: Button
     lateinit var buttonRoz: Button
     lateinit var buttonPro: Button
+    lateinit var buttonMenu:Button
+
     private  lateinit var model: SharedViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -24,11 +27,34 @@ class Fragment_weather_menu : Fragment() {
         buttonPod = v.pod
         buttonRoz = v.roz
         buttonPro = v.pro
-
+        buttonMenu = v.menu
         return v
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.let {
+            model = ViewModelProviders.of(it).get(SharedViewModel::class.java)
+        }
+
+        buttonOpcje.setOnClickListener {
+            model.who.value = "opcjePog"
+        }
+
+        buttonPod.setOnClickListener {
+            model.who.value = "pod"
+        }
+
+        buttonRoz.setOnClickListener {
+            model.who.value = "roz"
+        }
+
+        buttonPro.setOnClickListener {
+            model.who.value = "pro"
+        }
+
+        buttonMenu.setOnClickListener {
+            model.who.value = "menu"
+        }
     }
 }

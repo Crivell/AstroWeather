@@ -8,5 +8,5 @@
     <Button android:layout_width="match_parent" android:textFontWeight="14sp" android:layout_height="wrap_content" android:text="Podstawowe" android:id="@+id/pod"/>
     <Button android:layout_width="match_parent" android:textFontWeight="14sp" android:layout_height="wrap_content" android:text="Dodatkowe" android:id="@+id/roz"/>
     <Button android:layout_width="match_parent" android:textFontWeight="14sp" android:layout_height="wrap_content" android:text="Prognoza na nastempne dni" android:id="@+id/pro"/>
-
+    <Button android:layout_width="match_parent" android:textFontWeight="14sp" android:layout_height="wrap_content" android:text="Cofnij do menu" android:id="@+id/menu"/>
 </LinearLayout>

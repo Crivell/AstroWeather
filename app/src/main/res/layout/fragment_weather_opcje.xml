@@ -3,21 +3,22 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Długość Geograficzna"/>
-    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/kor1" android:numeric="decimal"/>
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Szerokość geograficzna"/>
-    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/kor2" android:numeric="decimal" />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Miasto"/>
+    <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/kor1"/>
+
 
     <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Update koordynatów" android:id="@+id/update"/>
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Czestotliwosc odswiezania w minutach"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Miasto do zapisania do ulibionuch"/>
     <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/odswie" android:numeric="integer" />
 
-    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Update odswiezania"
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dodaj"
             android:id="@+id/updateOdswiezania"/>
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/up"/>
     <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:text="cofnij sie do menu" android:id="@+id/co"/>
-    <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:text="informacje o slacu" android:id="@+id/sl"/>
-    <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:text="informacje o ksiezyciu" android:id="@+id/ks"/>
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Odswierz infromacje" android:id="@+id/sl"/>
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content"  android:id="@+id/ks"/>
+
+
 
 </LinearLayout>

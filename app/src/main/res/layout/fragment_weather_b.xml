@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Miasto"
+              android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/mias"
+              android:textSize="20sp"/>
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/co" android:text="Cofnij do menu" android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" SilaWiatru"
+              android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/wspol"
+              android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Kierunek"
+              android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/temp"
+              android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:text="wilgotnosc" android:textSize="20sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/Cisnienie"
+              android:textSize="20sp"/>
 
-</android.support.constraint.ConstraintLayout>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/time"
+              android:textSize="20sp"/>
+
+</LinearLayout>

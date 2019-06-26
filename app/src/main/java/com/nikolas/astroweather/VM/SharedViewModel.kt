@@ -19,6 +19,8 @@ class SharedViewModel : ViewModel() {
     val bool = MutableLiveData<Boolean>()
     val astroCalculator:MutableLiveData<AstroCalculator> = MutableLiveData<AstroCalculator>()
     val currentWeatherData:MutableLiveData<CurrentWeatherData> = MutableLiveData()
+    val farOrCel:MutableLiveData<Boolean> = MutableLiveData()
+
     fun setText(tex:String){
         text.value = tex
     }
@@ -31,6 +33,7 @@ class SharedViewModel : ViewModel() {
         astroCalculator.value = setUpDataToAstro(0.0,0.0)
         date.value = 15
         bool.value = false
+        farOrCel.value = false
     }
     fun getText(): LiveData<String> {
         return text

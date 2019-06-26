@@ -23,9 +23,8 @@ import org.json.JSONObject
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    val FILE = "currentWeatherData.txt"
     var ppid :String = "e0acab86e57a4e959d0dec63a58d0bbc"
-    var url : String = "https://api.openweathermap.org/data/2.5/weather?q=Łódź" + "&appid=" + ppid
+    var url : String = "https://api.openweathermap.org/data/2.5/weather?q=Opoczno" + "&appid=" + ppid
     val databaseHelper = DatabaseHelper(this,null)
     val sharedViewModel : SharedViewModel by lazy {
         ViewModelProviders.of(this).get(SharedViewModel::class.java)
@@ -98,6 +97,14 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+//    "opcjePog"
+//
+//        "pod"
+//
+//            "roz"
+//
+//                "pro"
+
     private fun observe(sharedViewModel: SharedViewModel) {
         sharedViewModel.who.observe(this, Observer {
             it?.let {
@@ -112,6 +119,21 @@ class MainActivity : AppCompatActivity() {
                 }
                 if(it.equals("ksie")){
                     supportFragmentManager.beginTransaction().replace(R.id.fragA, Fragment_B()).commit()
+                }
+                if(it.equals("opcjePog")){
+                    supportFragmentManager.beginTransaction().replace(R.id.fragA,Fragment_weather_opcje()).commit()
+                }
+                if(it.equals("pod")){
+                    supportFragmentManager.beginTransaction().replace(R.id.fragA, Fragment_weather_a()).commit()
+                }
+                if(it.equals("roz")){
+                    supportFragmentManager.beginTransaction().replace(R.id.fragA, Fragment_weather_b()).commit()
+                }
+                if(it.equals("pro")){
+                    supportFragmentManager.beginTransaction().replace(R.id.fragA, Fragment_weather_c()).commit()
+                }
+                if(it.equals("menuWe")){
+                    supportFragmentManager.beginTransaction().replace(R.id.fragA, Fragment_weather_menu()).commit()
                 }
             }
         })
@@ -131,9 +153,8 @@ class MainActivity : AppCompatActivity() {
                         var currentWeatherData: CurrentWeatherData = gson.fromJson(response.toString(),CurrentWeatherData::class.java)
                         sharedViewModel.currentWeatherData.value = currentWeatherData
                         databaseHelper.updateNote(Node(1,response.toString()))
-                        var node = databaseHelper.getNode(1)
                         var new = gson.fromJson(databaseHelper.getNode(1).data,CurrentWeatherData::class.java)
-                        VolleyLog.d(new.name+"3333333333")
+                        VolleyLog.d(new.name)
                     } catch (e: JSONException) {
                         e.printStackTrace()
                     }

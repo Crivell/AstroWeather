@@ -22,6 +22,9 @@ class DatabaseHelper(context: Context,
     override fun onCreate(db: SQLiteDatabase?) {
 
         db!!.execSQL(no.CREATE_TABLE)
+        this.insertNote(Node(1,""))
+        this.insertNote(Node(2,""))
+        this.insertNote(Node(3,""))
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
